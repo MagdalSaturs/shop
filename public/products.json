@@ -1,0 +1,41 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iPhone 14",
+            "description": "Najlepszy telefon z Apple",
+            "price": 4999,
+            "promoPrice": 4666,
+            "category": "PHONE",
+            "avaible": true
+        },
+        {
+            "id": 2,
+            "name": "iPhone 13",
+            "description": "Aktualnie dobry telefon z Apple",
+            "price": 4000,
+            "promoPrice": 3800,
+            "category": "PHONE",
+            "avaible": true
+            
+        },
+        {
+            "id": 3,
+            "name": "Samsung Galaxy A52",
+            "description": "Telefon Samsung",
+            "price": 2000,
+            "promoPrice": 1600,
+            "category": "PHONE",
+            "avaible": true
+        },
+        {
+            "id": 4,
+            "name": "Dell Inspiron",
+            "description": "Solidny laptop do pracy",
+            "price": 2600,
+            "promoPrice": 2300,
+            "category": "LAPTOP",
+            "avaible": true
+        }
+    ]
+}

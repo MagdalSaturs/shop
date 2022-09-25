@@ -1,0 +1,83 @@
+.cart{
+    display: inline-block;
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    padding: 10px;
+    border: 4px solid #80deea;
+    background: #29b6f6;
+    z-index: 100;
+    border-radius: 5px;
+}
+
+.clearBtn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.clearBtn:hover {
+    background: #c62828;
+}
+
+.cart p{
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.deleteBtn {
+    display: inline-block;
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    background: #c62828;
+}
+
+.cart h4{
+    display: inline-block;
+    color: green;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.cart h5 {
+    color: greenyellow;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.cart h6{
+    color: greenyellow;
+    font-size: 15px;
+    margin: 0;
+}
+
+.promoCodeDiv .promoCode{
+    display: inline-block;
+    width: 40%;
+    margin-left: 20px;
+}
+
+.promoCodeDiv .input {
+    text-align: center;
+    display: inline-block;
+    width: 60%;
+    margin-left: 20px;
+    margin-top: 20px;
+}

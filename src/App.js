@@ -1,23 +1,53 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Products from './components/products/Products';
+import Cart from './components/cart/Cart';
 
-function App() {
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch('./products.json');
+      const data = await response.json();
+
+      setProducts(data.products);
+    };
+  
+    getData();
+  }, []); //jeśli chcemy odpalić tą funkcję tylko raz, dlatego dodajemy tą tablicę []
+
+  const setCartDelegate = (product) => {
+    setCart([...cart, product]);
+  };
+
+  const cleanCart = () => {
+    setCart([]);
+  };
+
+  const deleteProduct = (product) => {
+    // const newCart = cart.filter((item) => item.id !== product.id);
+    // setCart([...newCart]);
+    const newCart = [];
+    let deleted = false;
+
+    cart.forEach((item) => {
+      if (item.id !== product.id) {
+        deleted = true;
+        newCart.push(item);
+      }
+    });
+    setCart([...newCart]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h1>Shop</h1>
+      </div>
+      {!!cart.length && <Cart cart={cart} cleanCart={cleanCart} deleteProduct={deleteProduct} />}
+      <Products products={products} setCart={setCartDelegate} />
     </div>
   );
 }
