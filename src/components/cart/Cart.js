@@ -1,11 +1,15 @@
 import './Cart.css';
+import React, { useState } from 'react';
 
 const Cart = (props) => {
     const cart = props.cart;
     const cleanCart = props.cleanCart;
     const deleteProduct = props.deleteProduct;
+    const products = props.products;
 
-    const promoCodes = ['PROMOCJA1', 'PROMOCJA2'];
+    const [Promo, setPromo] = useState(1);
+
+    const promoCodes = ['PROMOCJA1', 'PROMOCJA2', 'PROMOCJA3', 'PROMOCJA4', 'PROMOCJA5', 'PROMOCJA6', 'PROMOCJA7', 'PROMOCJA8', 'PROMOCJA9', 'PROMOCJA10'];
 
     const getTotalPrice = () => {
         let total = 0;
@@ -24,47 +28,35 @@ const Cart = (props) => {
     };
 
     const getPromoCode = () => {
-        code = document.getElementById('promoCode').value;
-        
-        if (promoCodes.includes(code)) {
+        if (promoCodes.includes(document.getElementById('promoCode').value)) {
             document.getElementById('promoCode').value = '';
             document.getElementById('promoCode').placeholder = 'Kod poprawny';
             document.getElementById('promoCode').style.backgroundColor = 'green';
             document.getElementById('promoCode').style.color = 'white';
-
-            promoPrice = item.promoPrice
-
-            return promoPrice;
+            document.getElementById('totalPrice').innerHTML = `Total price: ${getTotalPromoPrice() * Promo}zł`;
+            document.getElementById('usePromoPrice').innerHTML = '';
         }
-        else {
-            document.getElementById('promoCode').value = '';
-            document.getElementById('promoCode').placeholder = 'Kod niepoprawny';
-            document.getElementById('promoCode').style.backgroundColor = 'red';
-            document.getElementById('promoCode').style.color = 'white';
-
-            promoPrice = item.price
-
-            return promoPrice;
-        }
+        document.getElementById('promoCode').value = '';
     };
 
     return(
         <div className='cart'>
             <h2>Cart</h2>
+
+            <div className='promoCodeDiv'>
+                <input id='promoCode' type="text" placeholder='wpisz kod rabatowy' className='input'></input>
+                <button onClick={getPromoCode} className='promoBtn'>Zatwierdź kod</button>
+            </div>
+
             {cart.map((item, index) => {
                 return <div>
                     <p key={index}>{item.name}</p>
-                    <h4 key={index}>Cena produktu: {item.price}</h4>
                     <button onClick={() => deleteProduct(item)} className='deleteBtn'>Delete</button>
                 </div>
             })}
-            <h5>Total price: {getTotalPrice()}zł</h5>
-            <h6>Używając ceny promocyjnej zaoszczędzisz: {getTotalPrice() - getTotalPromoPrice()}</h6>
+            <h5 id='totalPrice'>Total price: {getTotalPrice()}zł</h5>
+            <h6 id='usePromoPrice'>Używając ceny promocyjnej zaoszczędzisz: {getTotalPrice() - getTotalPromoPrice()}</h6>
             <button onClick={() => props.cleanCart(cleanCart)} className='clearBtn'>Wyszyść koszyk</button>
-            <div className='promoCodeDiv'>
-                <input id='promoCode' type="text" placeholder='wpisz kod rabatowy' className='input'></input>
-                <button onClick={() => getPromoCode()} className='promoBtn'>Zatwierdź kod</button>
-            </div>
         </div>
     )
 };

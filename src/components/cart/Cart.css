@@ -68,16 +68,8 @@
     margin: 0;
 }
 
-.promoCodeDiv .promoCode{
-    display: inline-block;
-    width: 40%;
-    margin-left: 20px;
-}
-
 .promoCodeDiv .input {
     text-align: center;
     display: inline-block;
-    width: 60%;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 2px;
 }

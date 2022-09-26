@@ -27,18 +27,18 @@ const App = () => {
   };
 
   const deleteProduct = (product) => {
-    // const newCart = cart.filter((item) => item.id !== product.id);
-    // setCart([...newCart]);
-    const newCart = [];
-    let deleted = false;
-
-    cart.forEach((item) => {
-      if (item.id !== product.id) {
-        deleted = true;
-        newCart.push(item);
-      }
-    });
+    const newCart = cart.filter((item) => item.id !== product.id);
     setCart([...newCart]);
+    // const newCart = [];
+    // let deleted = false;
+
+    // cart.forEach((item) => {
+    //   if (item.id !== product.id) {
+    //     deleted = true;
+    //     newCart.push(item);
+    //   }
+    // });
+    // setCart([...newCart]);
   };
 
   return (
@@ -46,7 +46,7 @@ const App = () => {
       <div>
         <h1>Shop</h1>
       </div>
-      {!!cart.length && <Cart cart={cart} cleanCart={cleanCart} deleteProduct={deleteProduct} />}
+      {!!cart.length && <Cart cart={cart} cleanCart={cleanCart} deleteProduct={deleteProduct} products={products} />}
       <Products products={products} setCart={setCartDelegate} />
     </div>
   );
