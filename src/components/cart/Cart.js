@@ -5,9 +5,11 @@ const Cart = (props) => {
     const cart = props.cart;
     const cleanCart = props.cleanCart;
     const deleteProduct = props.deleteProduct;
-    const products = props.products;
+    // const products = props.products;
 
-    const [Promo, setPromo] = useState(1);
+    // console.log(products);
+
+    const [Promo] = useState(1);
 
     const promoCodes = ['PROMOCJA1', 'PROMOCJA2', 'PROMOCJA3', 'PROMOCJA4', 'PROMOCJA5', 'PROMOCJA6', 'PROMOCJA7', 'PROMOCJA8', 'PROMOCJA9', 'PROMOCJA10'];
 
@@ -45,7 +47,7 @@ const Cart = (props) => {
 
             <div className='promoCodeDiv'>
                 <input id='promoCode' type="text" placeholder='wpisz kod rabatowy' className='input'></input>
-                <button onClick={getPromoCode} className='promoBtn'>Zatwierdź kod</button>
+                <button onClick={getPromoCode} className='promoBtn'>Approve code</button>
             </div>
 
             {cart.map((item, index) => {
@@ -55,8 +57,8 @@ const Cart = (props) => {
                 </div>
             })}
             <h5 id='totalPrice'>Total price: {getTotalPrice()}zł</h5>
-            <h6 id='usePromoPrice'>Używając ceny promocyjnej zaoszczędzisz: {getTotalPrice() - getTotalPromoPrice()}</h6>
-            <button onClick={() => props.cleanCart(cleanCart)} className='clearBtn'>Wyszyść koszyk</button>
+            <h6 id='usePromoPrice'>By using the promotional price you will save: {getTotalPrice() - getTotalPromoPrice()}zł</h6>
+            <button onClick={() => props.cleanCart(cleanCart)} className='clearBtn'>Clean cart</button>
         </div>
     )
 };

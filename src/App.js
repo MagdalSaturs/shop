@@ -47,7 +47,7 @@ const App = () => {
         <h1>Shop</h1>
       </div>
       {!!cart.length && <Cart cart={cart} cleanCart={cleanCart} deleteProduct={deleteProduct} products={products} />}
-      <Products products={products} setCart={setCartDelegate} />
+      <Products products={products} setProducts={setProducts} setCart={setCartDelegate} />
     </div>
   );
 }

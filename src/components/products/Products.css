@@ -1,3 +1,11 @@
+.MainProducts h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #888;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .Products h2{
     font-size: 1.5rem;
     color: #888;
@@ -32,4 +40,32 @@
 
 .btn:hover{
     background: #26a69a;
+}
+
+.cheapBtn {
+    background: #5dff22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.cheapBtn:hover {
+    background: #5dff2266;
+}
+
+.expensiveBtn {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.expensiveBtn:hover {
+    background: #ff00006e;
 }

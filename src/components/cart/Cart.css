@@ -8,6 +8,8 @@
     background: #29b6f6;
     z-index: 100;
     border-radius: 5px;
+    height: 400px;
+    overflow: scroll;
 }
 
 .clearBtn {
@@ -72,4 +74,29 @@
     text-align: center;
     display: inline-block;
     margin-top: 2px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+.promoBtn {
+    background: #5dff22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.promoBtn:hover {
+    background: #5dff2266;
 }
