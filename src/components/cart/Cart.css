@@ -36,7 +36,7 @@
 
 .deleteBtn {
     display: inline-block;
-    background: #f44336;
+    background: #e64a19;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -47,7 +47,7 @@
 }
 
 .deleteBtn:hover{
-    background: #c62828;
+    background: #ac0800;
 }
 
 .cart h4{
@@ -88,7 +88,7 @@
 }
 
 .promoBtn {
-    background: #5dff22;
+    background: #00701a;
     color: white;
     border: none;
     padding: 10px 20px;
