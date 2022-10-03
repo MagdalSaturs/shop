@@ -1,16 +1,17 @@
-import './Cart.css';
 import React, { useState } from 'react';
+import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
     const cleanCart = props.cleanCart;
     const deleteProduct = props.deleteProduct;
-    // const products = props.products;
 
-    // console.log(products);
+    const promoCodeRef = React.createRef();
+    const totalPriceRef = React.createRef();
+    const usePromoPriceRef = React.createRef();
 
-    const [Promo] = useState(1);
-
+    const [Promo, setPromo] = useState(1);
+    
     const promoCodes = ['PROMOCJA1', 'PROMOCJA2', 'PROMOCJA3', 'PROMOCJA4', 'PROMOCJA5', 'PROMOCJA6', 'PROMOCJA7', 'PROMOCJA8', 'PROMOCJA9', 'PROMOCJA10'];
 
     const getTotalPrice = () => {
@@ -18,7 +19,12 @@ const Cart = (props) => {
         cart.forEach((item) => {
             total += item.price;
         });
-        return total;
+
+        if (Promo < 1) {
+            return total * Promo;
+        } else {
+            return total;
+        }
     };
 
     const getTotalPromoPrice = () => {
@@ -26,19 +32,20 @@ const Cart = (props) => {
         cart.forEach((item) => {
             total += item.promoPrice;
         });
+        
         return total;
     };
 
     const getPromoCode = () => {
-        if (promoCodes.includes(document.getElementById('promoCode').value)) {
-            document.getElementById('promoCode').value = '';
-            document.getElementById('promoCode').placeholder = 'Kod poprawny';
-            document.getElementById('promoCode').style.backgroundColor = 'green';
-            document.getElementById('promoCode').style.color = 'white';
-            document.getElementById('totalPrice').innerHTML = `Total price: ${getTotalPromoPrice() * Promo}zł`;
-            document.getElementById('usePromoPrice').innerHTML = '';
+        if (promoCodes.includes(promoCodeRef.current.value)) {
+            promoCodeRef.current.value = '';
+            promoCodeRef.current.placeholder = 'Kod poprawny';
+            promoCodeRef.current.style.backgroundColor = 'green';
+            promoCodeRef.current.style.color = 'white';
+            usePromoPriceRef.current.innerHTML = '';
+            setPromo(0.8);
         }
-        document.getElementById('promoCode').value = '';
+        promoCodeRef.current.value = '';
     };
 
     return(
@@ -46,7 +53,7 @@ const Cart = (props) => {
             <h2>Cart</h2>
 
             <div className='promoCodeDiv'>
-                <input id='promoCode' type="text" placeholder='wpisz kod rabatowy' className='input'></input>
+                <input ref={promoCodeRef} type="text" placeholder='wpisz kod rabatowy' className='input'></input>
                 <button onClick={getPromoCode} className='promoBtn'>Approve code</button>
             </div>
 
@@ -56,8 +63,8 @@ const Cart = (props) => {
                     <button onClick={() => deleteProduct(item)} className='deleteBtn'>Delete</button>
                 </div>
             })}
-            <h5 id='totalPrice'>Total price: {getTotalPrice()}zł</h5>
-            <h6 id='usePromoPrice'>By using the promotional price you will save: {getTotalPrice() - getTotalPromoPrice()}zł</h6>
+            <h5 ref={totalPriceRef}>Total price: {getTotalPrice()}zł</h5>
+            <h6 ref={usePromoPriceRef}>By using the promotional price you will save: {getTotalPrice() - getTotalPromoPrice()}zł</h6>
             <button onClick={() => props.cleanCart(cleanCart)} className='clearBtn'>Clean cart</button>
         </div>
     )

@@ -16,7 +16,7 @@ const App = () => {
     };
   
     getData();
-  }, []); //jeśli chcemy odpalić tą funkcję tylko raz, dlatego dodajemy tą tablicę []
+  }, []);
 
   const setCartDelegate = (product) => {
     setCart([...cart, product]);
@@ -29,16 +29,7 @@ const App = () => {
   const deleteProduct = (product) => {
     const newCart = cart.filter((item) => item.id !== product.id);
     setCart([...newCart]);
-    // const newCart = [];
-    // let deleted = false;
-
-    // cart.forEach((item) => {
-    //   if (item.id !== product.id) {
-    //     deleted = true;
-    //     newCart.push(item);
-    //   }
-    // });
-    // setCart([...newCart]);
+    
   };
 
   return (
