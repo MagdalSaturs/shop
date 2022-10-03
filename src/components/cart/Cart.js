@@ -11,7 +11,6 @@ const Cart = (props) => {
     const usePromoPriceRef = React.createRef();
 
     const [Promo, setPromo] = useState(1);
-    
     const promoCodes = ['PROMOCJA1', 'PROMOCJA2', 'PROMOCJA3', 'PROMOCJA4', 'PROMOCJA5', 'PROMOCJA6', 'PROMOCJA7', 'PROMOCJA8', 'PROMOCJA9', 'PROMOCJA10'];
 
     const getTotalPrice = () => {
