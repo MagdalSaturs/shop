@@ -12,6 +12,35 @@
     margin: 0 0 30px 0; 
 }
 
+.searchProduct {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+.searchProduct {
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    outline: none;
+    padding: 12px 20px;
+}
+
+.searchBtn {
+    background-color: #8d8d8d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchBtn:hover {
+    background-color: #000;
+}
+
 .product{
     color: #26c6da;
     display: flex;

@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
 import './Products.css';
 
 const Products = (props) => {
     const products = props.products;
+
+    const searchProduct = React.createRef();
 
     const cheapSort = () => {
         const sortedProducts = products.sort((a,b) => a.price - b.price);
@@ -15,9 +18,17 @@ const Products = (props) => {
         props.setProducts([...sortedProducts]);
     };
 
+    const productSearch = () => {
+        const productName = searchProduct.current.value;
+        props.setProducts([...products.filter((item) => item.name.includes(productName))]);
+    };
+
     return(
         <div className='MainProducts'>
             <h2>Products</h2>
+
+            <input ref={searchProduct} type="text" placeholder='wyszukaj produkt' className='searchProduct'></input>
+            <button onClick={productSearch} className='searchBtn'>Serch Product</button>
 
             <button onClick={cheapSort} className='cheapBtn'>From the cheapest</button>
             <button onClick={expensiveSort} className='expensiveBtn'>From the dearest</button>
